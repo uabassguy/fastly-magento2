@@ -44,6 +44,11 @@
     if (beresp.http.x-esi) {
         # enable ESI feature for Magento response by default
         esi;
+
+        if ( beresp.http.Set-Cookie:X-Magento-Vary ) {
+            set beresp.http.X-Magento-Vary = beresp.http.Set-Cookie:X-Magento-Vary;
+        }
+
         if (!beresp.http.Vary ~ "X-Magento-Vary,Https") {
             if (beresp.http.Vary) {
                 set beresp.http.Vary = beresp.http.Vary ",X-Magento-Vary,Https";

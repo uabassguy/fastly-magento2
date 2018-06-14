@@ -17,6 +17,7 @@
         # Remove X-Magento-Vary and HTTPs Vary served to the user
         set resp.http.Vary = regsub(resp.http.Vary, "X-Magento-Vary,Https", "Cookie");
         remove resp.http.X-Magento-Tags;
+        remove resp.http.X-Magento-Vary;
     }
 
     # Add an easy way to see whether custom Fastly VCL has been uploaded
