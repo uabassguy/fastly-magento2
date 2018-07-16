@@ -81,7 +81,7 @@ class CreateCustomSnippet extends Action
         } catch (\Exception $e) {
             return $result->setData([
                 'status'    => false,
-                'msg'       => $e->getMessage()
+                'msg'       => "DIR=" . $fileDirectory . " MSG=" . $e->getMessage()
             ]);
         }
     }
